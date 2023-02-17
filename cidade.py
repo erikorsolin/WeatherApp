@@ -1,3 +1,5 @@
+from chaves import chave
+
 import requests
 class Cidade:
     def __init__(self, nome):
@@ -14,7 +16,6 @@ class Cidade:
     
     #Set
     def call_api(self):
-        chave = "abdcb2f05a1704c2ef9a456e893a3f41"
         link = f"https://api.openweathermap.org/data/2.5/weather?q={self.nome}&appid={chave}&lang=pt_br"
         requisicao = requests.get(link)
         dic = requisicao.json()
