@@ -21,7 +21,6 @@ def main():
         texto_condicoes['text'] = 'Cidade não encontrada :('
 
 
-
 interface = Tk()
 interface.title('Weather App')
 interface.geometry('500x400')

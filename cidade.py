@@ -27,7 +27,3 @@ class Cidade:
         self.pressao = dic['main']['pressure']
         self.umidade = dic['main']['humidity']
         self.speedVento = '{:.2f}'.format(dic['wind']['speed'] * 3.6)
-
-
-
-
