@@ -1,6 +1,8 @@
 from cidade import Cidade
 import tkinter
 import customtkinter
+from PIL import ImageTk, Image
+
 
 
 def main():
@@ -34,16 +36,24 @@ def main():
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("dark-blue")
 
+
 interface = customtkinter.CTk()
 interface.title('Weather App')
 interface.geometry('600x440')
 
 
-msg = customtkinter.CTkLabel(master=interface, text='Condições meteorológicas atualizadas')
-msg.pack()
+img1 = ImageTk.PhotoImage(Image.open('pingos.png'))
+l = customtkinter.CTkLabel(master=interface, image=img1)
+l.pack()
+
+
 
 frame = customtkinter.CTkFrame(master=interface, width=320, height=360, corner_radius=15)
 frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+
+msg = customtkinter.CTkLabel(master=frame, text='Condições meteorológicas atualizadas', text_color="#669EE8", font=customtkinter.CTkFont(family='Arial', size=13))
+msg.place(x=49, y=6)
+
 l2=customtkinter.CTkLabel(master=frame, text='Digite o nome da cidade', font=customtkinter.CTkFont(family='Century Gothic', size=20) )
 l2.place(x=40, y=45)
 
@@ -53,7 +63,7 @@ entrada.place(x=45, y=110)
 botao=customtkinter.CTkButton(master=frame, width=220, text='Obter', corner_radius=6, command=main)
 botao.place(x=45, y=155)
 
-l3 = customtkinter.CTkLabel(master=frame, text='')
+
 
 interface.mainloop()
 
