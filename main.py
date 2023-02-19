@@ -1,5 +1,7 @@
 from cidade import Cidade
-from tkinter import *
+import tkinter
+import customtkinter
+
 
 def main():
     nome = entrada.get()
@@ -7,38 +9,51 @@ def main():
     try:
         c1.call_api()
 
-        texto = f'''
-        Descrição: {c1.descricao}
-        Umidade: {c1.umidade}
-        Temperatura: {c1.temperatura} C
-        Sensação térmica: {c1.sensacao} C
-        Temperatura Mínima: {c1.minima} C
-        Temperatura Máxima: {c1.maxima} C
-        Pressão Atmosférica: {c1.pressao}"Hg    
-        Velocidade do vento: {c1.speedVento} KM/h'''
-        texto_condicoes['text'] = texto
-    except:
-        texto_condicoes['text'] = 'Cidade não encontrada :('
+        l3 = customtkinter.CTkLabel(
+            master=frame, 
+            text=f'''
+            Descrição: {c1.descricao}
+            Umidade: {c1.umidade}
+            Temperatura: {c1.temperatura} C
+            Sensação térmica: {c1.sensacao} C
+            Temperatura Mínima: {c1.minima} C
+            Temperatura Máxima: {c1.maxima} C
+            Pressão Atmosférica: {c1.pressao}"Hg  
+            Velocidade do vento: {c1.speedVento} KM/h''',
+            font=customtkinter.CTkFont(family='Arial', size=13))
+        l3.place(x=15, y= 190)
+        
+    except: 
+        l3 = customtkinter.CTkLabel(master=frame, text='Cidade não encontrada')
+        l3.place(x=50, y= 200)
 
 
-interface = Tk()
+
+
+
+customtkinter.set_appearance_mode("dark")
+customtkinter.set_default_color_theme("dark-blue")
+
+interface = customtkinter.CTk()
 interface.title('Weather App')
-interface.geometry('500x400')
-interface['bg'] = "#5C7394"
-msg = Label(interface, text='Condições meteorológicas atualizadas', font='Times 15', bg='#5C7394')
-msg.grid(column=0, row=0, padx=15, pady=15)
-
-txt = Label(interface, text='Digite o nome da cidade ', font= 'Arial 9 italic', bg='#5C7394')
-txt.grid(column=0, row=1, padx=10, pady=10)
-entrada = Entry(interface, width=27)
-entrada.grid(column=0, row=3, padx=10, pady=10)
+interface.geometry('600x440')
 
 
-botao = Button(interface, text='Obter',command=main, bg='#447BC7')
-botao.grid(column=1, row=3, padx=15, pady=15)
+msg = customtkinter.CTkLabel(master=interface, text='Condições meteorológicas atualizadas')
+msg.pack()
 
-    
-texto_condicoes = Label(interface, text='', bg='#5C7394', font='Arial 12')
-texto_condicoes.grid(column=0, row=4, padx=15, pady=15)
+frame = customtkinter.CTkFrame(master=interface, width=320, height=360, corner_radius=15)
+frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+l2=customtkinter.CTkLabel(master=frame, text='Digite o nome da cidade', font=customtkinter.CTkFont(family='Century Gothic', size=20) )
+l2.place(x=40, y=45)
+
+entrada=customtkinter.CTkEntry(master=frame, width=220, placeholder_text= "cidade")
+entrada.place(x=45, y=110)
+
+botao=customtkinter.CTkButton(master=frame, width=220, text='Obter', corner_radius=6, command=main)
+botao.place(x=45, y=155)
+
+l3 = customtkinter.CTkLabel(master=frame, text='')
 
 interface.mainloop()
+

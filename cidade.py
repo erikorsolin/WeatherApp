@@ -14,7 +14,7 @@ class Cidade:
         self.speedVento = 0
 
     
-    #Set
+    # fazendo a requisição e setando os atributos da classe     
     def call_api(self):
         link = f"https://api.openweathermap.org/data/2.5/weather?q={self.nome}&appid={chave}&lang=pt_br"
         requisicao = requests.get(link)
