@@ -19,7 +19,7 @@ def main(box):
         Temperatura Máxima: {c1.maxima} C
         Pressão Atmosférica: {c1.pressao}"Hg  
         Velocidade do vento: {c1.speedVento} KM/h'''
-    except: 
+    except KeyError: 
         dados = 'Cidade não encontrada'
 
     box.configure(text=dados)    
