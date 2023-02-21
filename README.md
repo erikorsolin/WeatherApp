@@ -5,9 +5,7 @@
 
 ### LIBS ###
 #### 
-     $ pip install requests 
-     $ pip install pillow
-     $ pip install customtkinter
+     $ pip install requests pillow customtkinter
      
 ### RUN ###
 ####
