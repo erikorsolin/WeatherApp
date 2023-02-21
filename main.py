@@ -26,8 +26,8 @@ def main():
         l3.place(x=15, y= 190)
         
     except: 
-        l3 = customtkinter.CTkLabel(master=frame, text='Cidade não encontrada')
-        l3.place(x=50, y= 200)
+        l4 = customtkinter.CTkLabel(master=frame, text='Cidade não encontrada')
+        l4.place(x=51, y= 200)
 
 
 
