@@ -57,7 +57,7 @@ botao.place(x=45, y=155)
 
 l3 = customtkinter.CTkLabel(
     master=frame, 
-    text='ola mundo',
+    text='',
     font=customtkinter.CTkFont(family='Arial', size=13)
     )
 l3.place(x=15, y= 190)
