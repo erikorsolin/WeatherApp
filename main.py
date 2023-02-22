@@ -5,7 +5,7 @@ from PIL import ImageTk, Image
 
 
 
-def main():
+def main(box):
     nome = entrada.get()
     c1 = Cidade(nome)
     try:
@@ -26,8 +26,8 @@ def main():
         l3.place(x=15, y= 190)
         
     except: 
-        l4 = customtkinter.CTkLabel(master=frame, text='Cidade não encontrada')
-        l4.place(x=51, y= 200)
+        l3 = customtkinter.CTkLabel(master=frame, text='Cidade não encontrada')
+        l3.place(x=50, y= 200)
 
 
 
@@ -60,9 +60,15 @@ l2.place(x=40, y=45)
 entrada=customtkinter.CTkEntry(master=frame, width=220, placeholder_text= "cidade")
 entrada.place(x=45, y=110)
 
-botao=customtkinter.CTkButton(master=frame, width=220, text='Obter', corner_radius=6, command=main)
+botao=customtkinter.CTkButton(master=frame, width=220, text='Obter', corner_radius=6, command=lambda: main(l3))
 botao.place(x=45, y=155)
 
+l3 = customtkinter.CTkLabel(
+    master=frame, 
+    text='ola mundo',
+    font=customtkinter.CTkFont(family='Arial', size=13)
+    )
+l3.place(x=15, y= 190)
 
 
 interface.mainloop()
