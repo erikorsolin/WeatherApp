@@ -10,27 +10,19 @@ def main(box):
     c1 = Cidade(nome)
     try:
         c1.call_api()
+        dados = f'''
+        Descrição: {c1.descricao}
+        Umidade: {c1.umidade}
+        Temperatura: {c1.temperatura} C
+        Sensação térmica: {c1.sensacao} C
+        Temperatura Mínima: {c1.minima} C
+        Temperatura Máxima: {c1.maxima} C
+        Pressão Atmosférica: {c1.pressao}"Hg  
+        Velocidade do vento: {c1.speedVento} KM/h'''
+    except KeyError: 
+        dados = 'Cidade não encontrada'
 
-        l3 = customtkinter.CTkLabel(
-            master=frame, 
-            text=f'''
-            Descrição: {c1.descricao}
-            Umidade: {c1.umidade}
-            Temperatura: {c1.temperatura} C
-            Sensação térmica: {c1.sensacao} C
-            Temperatura Mínima: {c1.minima} C
-            Temperatura Máxima: {c1.maxima} C
-            Pressão Atmosférica: {c1.pressao}"Hg  
-            Velocidade do vento: {c1.speedVento} KM/h''',
-            font=customtkinter.CTkFont(family='Arial', size=13))
-        l3.place(x=15, y= 190)
-        
-    except: 
-        l3 = customtkinter.CTkLabel(master=frame, text='Cidade não encontrada')
-        l3.place(x=50, y= 200)
-
-
-
+    box.configure(text=dados)    
 
 
 customtkinter.set_appearance_mode("dark")
